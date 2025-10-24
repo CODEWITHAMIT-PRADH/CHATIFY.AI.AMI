@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login-FORM</title>
+
+    <style>
+        /* =============== BASIC RESET =============== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* =============== BODY =============== */
+body {
+    background: linear-gradient(to right, #00bcd4, #0097a7);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =============== MODAL BACKGROUND =============== */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* =============== MODAL BOX =============== */
+.model-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px 30px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    position: relative;
+    animation: slideIn 0.4s ease;
+}
+
+/* Animation for smooth opening */
+@keyframes slideIn {
+    from { transform: translateY(-40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* =============== CLOSE BUTTON =============== */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #00bcd4;
+}
+
+/* =============== FORM HEADING =============== */
+.model-content h2 {
+    text-align: center;
+    color: #0097a7;
+    margin-bottom: 25px;
+}
+
+/* =============== INPUT FIELDS =============== */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px rgba(0,188,212,0.4);
+}
+
+/* =============== BUTTON =============== */
+.btn {
+    width: 100%;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #0192a4;
+    transform: scale(1.03);
+}
+
+/* =============== RESPONSIVE DESIGN =============== */
+@media (max-width: 480px) {
+    .model-content {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .model-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .btn {
+        font-size: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div id="loginModal" class="modal">
+            <div class="model-content">
+                <span class="close">&times;</span>
+                <h2>Login To CHATIFY</h2>
+                <form action="index2.html">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="enter your name" user.name="your name" required><br>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="enter your email" user.email="you@gmail.com" required><br>
+
+                    <label for="password">password</label>
+                    <input type="password" id="pass" placeholder="enter password"required><br>
+                    <button type="submit" class="btn">Login</button>
+                    
+                    
+                
+                </form>
+            </div>
+        </div>
+        <!-- <span class="close">&times;</span> -->
+        <script>
+            // const modal = document.getElementById("loginModal");
+            // const btn = document.getElementById("loginBtn");
+            // const span = document.getElementsByClassName("close")[0];
+
+            document.addEventListener("DOMContentLoaded",()=>{
+                const modal=document.getElementById("loginModal");
+                const closeBtn=document.querySelector(".close");
+
+                 closeBtn.onclick=()=>{
+                modal.style.display="none";
+            }
+                 window.onclick=(event)=>{
+                if(event.target=== modal){
+                     modal.style.display="none";
+                    
+                    }
+
+            }
+
+             closeBtn.onclick=()=>{
+                modal.style.opacity ="0";
+                setTimeout(() =>{
+                    modal.style.display="none";
+                    window.location.href="index.html";
+                },800);
+             };
+            })
+           
+
+
+//             btn.oneclick=function(){
+//                 modal.style.display="flex";
+// }
+//             span.oneclick=function(){
+//                 modal.style.display="none";
+//             }
+//             window.oneclick =function(event){
+//                 if(event.target== modal){
+//                     modal.style.display="none";
+//                 }
+//             }
+            // closeBtn.onclick=()=>{
+            //     modal.style.display="none";
+            // }
+
+            // window.onclick=(event)=>{
+            //     if(event.target=== modal){
+            //          modal.style.display="none";
+                    
+            //         }
+
+            // }
+
+        </script>
+    
+
+</body>
+</html>

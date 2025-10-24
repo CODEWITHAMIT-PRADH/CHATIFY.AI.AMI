@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>front-page</title>
+    <style>
+        pre{
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* =============== BASIC RESET =============== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============== BODY =============== */
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* =============== HEADER =============== */
+header {
+    background-color: #111;
+    color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ======== NAVIGATION ======== */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00bcd4;
+}
+
+/* ======== SIGN-UP BUTTON ======== */
+header button {
+    background-color: #00bcd4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #0192a4;
+}
+
+/* =============== HERO SECTION =============== */
+.hero {
+    background: linear-gradient(to right, #00bcd4, #0097a7);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.hero .btn {
+    background-color: white;
+    color: #0097a7;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #e0f7fa;
+}
+
+/* =============== INFO SECTIONS =============== */
+section.info {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+section.info h3 {
+    font-size: 1.8rem;
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+/* ======== ABOUT SECTION ======== */
+pre {
+    font-size: 18px;
+    white-space: pre-wrap;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* ======== FEATURES SECTION ======== */
+ul {
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* ======== CONTACT SECTION ======== */
+#co a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#co a:hover {
+    text-decoration: underline;
+}
+
+/* =============== FOOTER =============== */
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+
+/* =============== RESPONSIVE DESIGN =============== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    section.info {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 70px 15px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero .btn {
+        padding: 10px 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- =========================HEADER=========================== -->
+    <header>
+        <div class="container">
+            <h1 class="logo">CHATIFY.AI</h1>
+            <nav>
+                <ul>
+                    <li><a href="#ab">ABOUT US</a></li>
+                    <li><a href="#fs">FEATURES</a></li>
+                    <li><a href="#co">CONTACT US</a></li>
+                </ul>
+            </nav>
+           <button onclick="window.location.href= 'login.html'">SIGN-UP</button>
+
+        </div>
+    </header>
+    <!-- =========================HERO SECTION=========================== -->
+        <section class="hero">
+            <h2>Connect Creatively</h2>
+            <p>
+                CHATIFY AI empowers you to build your own creative network,share ideas,and level up your connections seamlessly.
+            </p>
+            <a href="login.html" class="btn">Get Started</a>
+        </section>
+
+    <!-- =========================ABOUT=========================== -->
+     <section id="ab" class="info"></section>
+        <h3>About CHATIFY -</h3>
+            <pre >CHATIFY AI is an advanced AI-powered platform that provides instant and accurate 
+answers to your questions.The website allows users to ask text-based questions 
+and receive smart,reliable responses.You can also upload images to get detailed
+insights and information about them.CHATIFY AI  is designed to be simple, fast, 
+and mobile-friendly for a smooth experience on any device. The main goal of our 
+platform is to make knowledge and creativity accessible and interactive. CHATIFY
+is specially built for learner,creator,and curious minds. The platform is 
+privacy-focused and ensures that all user data is secure . Users can explore ideas 
+and solve their queestions fficiently.With CHATIFY AI, learning , exploring ,and 
+innovating has become easy and fun.This website empowerss you with AI-driven
+answers instantly ,anytime you need them.  </pre>
+
+    
+
+    <!-- =========================FEATURES=========================== -->
+     <section id="fs" class="info">
+        <h3>Features -</h3>
+        <ul>
+            <li>The websites provides smart answers to users'question in text.</li>
+            <li>When images are uploaded,it gives descriptions and detail about them.</li>
+            <li>It supportd multi-language chat and has a simple UI.</li>
+            <li>User login,history,and a secure data system are included.</li>
+            <li>The admin dashboard manages usage, feedback,and analyics</li>
+        
+        </ul>
+     </section>
+
+
+    <!-- =========================CONTACT=========================== -->
+    <section id="co" class="info">
+        <h3>Contact Us -</h3>
+        <p>
+            Got questions or wanna collab? Hit us up at
+            <a href="mailto:cuberpradh@gmail.com">cuberpradh@gmail.com</a>
+        </p>
+    </section>
+
+
+
+    <!-- =========================FOOTER=========================== -->
+     <footer>
+        <p> &copy; 2025 CHATIFY.Develop Your Skills</p>
+     </footer>
+     <!-- iss ko mene apne tarike e likha he to delete kar sakte hai -->
+     <!-- <script>
+        const botName="CHATIFY";
+        const creatorName="Amit Kumar Pradhan";
+
+        function getBotResponse(userMassage){
+            const msg=userMassage.toLowerCase();
+
+            if(msg.includes("your name")|| msg.includes("who are you")){
+                return`My name is ${botName}.`;
+            }
+
+            else if (msg.included("Who made you") ||
+            msg.includes("your creator") || msg.includes("who created you")) {
+                return`I was created by ${AMIT}.`;
+
+                
+            }
+            else{
+                return getAIResponse(msg);
+            }
+        }
+     </script> -->
+
+
+
+
+</body>
+</html>

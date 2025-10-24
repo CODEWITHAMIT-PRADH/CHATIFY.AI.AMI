@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+.chat-container{
+    width: 100%;
+    height: 80%;
+    background-color: rgb(164, 105, 212);
+    padding: 20px;
+    display: flex;
+    flex-direction:column ;
+    gap: 20px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+.user-chat-box{
+    width: 60%;
+    position: relative;
+    left: 40%;
+    
+}
+
+.ai-chat-box{
+    width: 60%;
+    position: relative;
+    
+}
+
+.user-chat-area{
+    width: 90%;
+    padding: 20px;
+    background-color: black;
+    color: rgb(211, 200, 178);
+    border-radius: 40px 0px 40px 40px;
+    box-shadow: 2px 2px 10px black;
+    display: flex;
+    
+    gap: 10px;
+    flex-direction: column ;
+    
+}
+.chooseimg{
+    width: 30%;
+    border-radius: 30px;
+}
+
+.ai-chat-area{
+    width: 90%;
+    padding: 20px;
+    background-color: rgba(75, 71, 71, 0.473);
+    position: relative;
+    left: 10%;
+    color: rgb(211, 200, 178);
+    border-radius: 0px 40px 40px 40px;
+    box-shadow: 2px 2px 10px black;
+}
+
+#userimage{
+    position: absolute;
+    right: 0;
+    border-radius: 0px 0px 0px 0px;
+    filter: drop-shadow(2px 2px 10px black);
+    margin-left: 10px;
+}
+
+#aiimage{
+    position: absolute;
+    left: 0;
+    border-radius: 0px 0px 0px 0px;
+    filter: drop-shadow(2px 2px 10px black);
+    margin-right: 10px;
+
+}
+
+.prompt-area{
+    width: 100%;
+    height: 20%;
+    background-color: rgb(164, 105, 212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.prompt-area input{
+    width: 50%;
+    height: 80px;
+    background-color: black;
+    outline: none;
+    border: none;
+    border-radius: 40px 40px 40px 40px;
+    box-shadow:2px 2px 10px black ;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.prompt-area button{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+    box-shadow:2px 2px 10px black ;
+    cursor: pointer;
+    transition: all 0.5s;
+
+}
+.prompt-area button:hover{
+    background-color: rgba(0, 0, 0, 0.418);
+
+}
+
+.load{
+    filter: drop-shadow(2px 2px 10px black); 
+}
+
+.choose{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:600px) {
+    .user-chat-box{
+        width: 80%;
+        left: 20%;
+    }
+
+     .ai-chat-box{
+        width: 80%;
+        
+    }
+    
+}
