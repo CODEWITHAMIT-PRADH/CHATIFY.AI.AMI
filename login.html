@@ -1,224 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login-FORM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHATIFY AI - Login & Profile</title>
+  <style>
+    /* ---------------- GENERAL ---------------- */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Poppins,sans-serif; }
+    body { background:#0d1117; color:#e6edf3; display:flex; justify-content:center; align-items:center; min-height:100vh; }
 
-    <style>
-        /* =============== BASIC RESET =============== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-                 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-/* =============== BODY =============== */
-body {
-    background: linear-gradient(to right, #00bcd4, #0097a7);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* =============== MODAL BACKGROUND =============== */
-.modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* =============== MODAL BOX =============== */
-.model-content {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 40px 30px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    position: relative;
-    animation: slideIn 0.4s ease;
-}
-
-/* Animation for smooth opening */
-@keyframes slideIn {
-    from { transform: translateY(-40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* =============== CLOSE BUTTON =============== */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close:hover {
-    color: #00bcd4;
-}
-
-/* =============== FORM HEADING =============== */
-.model-content h2 {
-    text-align: center;
-    color: #0097a7;
-    margin-bottom: 25px;
-}
-
-/* =============== INPUT FIELDS =============== */
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #333;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: 0.3s;
-    font-size: 16px;
-}
-
-input:focus {
-    border-color: #00bcd4;
-    box-shadow: 0 0 5px rgba(0,188,212,0.4);
-}
-
-/* =============== BUTTON =============== */
-.btn {
-    width: 100%;
-    background-color: #00bcd4;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #0192a4;
-    transform: scale(1.03);
-}
-
-/* =============== RESPONSIVE DESIGN =============== */
-@media (max-width: 480px) {
-    .model-content {
-        width: 90%;
-        padding: 25px 20px;
+    /* ---------------- CONTAINER STYLE ---------------- */
+    .container {
+      background:#161b22; padding:30px 40px; border-radius:16px; box-shadow:0 8px 25px rgba(0,255,255,0.1);
+      width:360px; text-align:center;
     }
 
-    .model-content h2 {
-        font-size: 1.4rem;
-    }
+    /* ---------------- HEADINGS ---------------- */
+    .container h1, .container h2 { color:#58a6ff; margin-bottom:20px; }
 
-    .btn {
-        font-size: 15px;
+    /* ---------------- INPUT FIELDS ---------------- */
+    .container input {
+      width:100%; padding:12px 15px; margin-bottom:15px; border:1px solid #30363d; border-radius:8px;
+      background:#0d1117; color:#e6edf3; font-size:15px; outline:none; transition:0.2s;
     }
-}
+    .container input:focus { border-color:#58a6ff; box-shadow:0 0 5px rgba(88,166,255,0.5); }
 
-    </style>
+    /* ---------------- BUTTONS ---------------- */
+    .container button {
+      width:100%; padding:12px; background:#238636; color:#fff; border:none; border-radius:8px; font-size:16px;
+      cursor:pointer; transition:0.2s;
+    }
+    .container button:hover { background:#2ea043; transform:scale(1.02); }
+
+    /* ---------------- LINKS ---------------- */
+    .container a { color:#58a6ff; text-decoration:none; }
+    .container p { margin-top:10px; font-size:14px; color:#8b949e; }
+
+    /* ---------------- PROFILE SECTION ---------------- */
+    .profile-container {
+      display:none; flex-direction:column; align-items:center; text-align:center;
+      background:#161b22; padding:30px 40px; border-radius:16px; width:360px; box-shadow:0 8px 25px rgba(0,255,255,0.1);
+    }
+    .profile-photo-section { display:flex; flex-direction:column; align-items:center; margin-bottom:20px; }
+    #profilePhoto { width:110px; height:110px; border-radius:50%; border:3px solid #58a6ff; object-fit:cover; margin-bottom:10px; transition:0.3s; }
+    #profilePhoto:hover { transform:scale(1.05); }
+    #changePhotoBtn { background:#238636; border:none; color:#fff; padding:8px 16px; border-radius:8px; cursor:pointer; transition:0.2s; }
+    #changePhotoBtn:hover { background:#2ea043; }
+
+    .profile-info { display:flex; flex-direction:column; gap:12px; width:100%; text-align:left; }
+    .profile-info label { font-size:14px; color:#8b949e; }
+    .profile-info input { padding:10px 12px; border-radius:8px; border:1px solid #30363d; background-color:#0d1117; color:#fff; font-size:15px; outline:none; }
+    .profile-info input:disabled { opacity:0.7; }
+
+    .profile-actions { margin-top:20px; display:flex; gap:10px; justify-content:space-between; }
+    .profile-actions button { flex:1; padding:12px; background:#238636; border:none; color:#fff; border-radius:8px; cursor:pointer; transition:0.2s; }
+    .profile-actions button:hover:not(:disabled) { background:#2ea043; transform:scale(1.03); }
+    .profile-actions button:disabled { opacity:0.6; cursor:not-allowed; }
+
+    .profile-actions1 { margin-top:20px; display:flex; gap:10px; justify-content:space-between; }
+    .profile-actions1 button { flex:1; padding:12px; background:#238636; border:none; color:#fff; border-radius:8px; cursor:pointer; transition:0.2s; }
+    .profile-actions1 button:hover:not(:disabled) { background:#2ea043; transform:scale(1.03); }
+    .profile-actions1 button:disabled { opacity:0.6; cursor:not-allowed; }
+  </style>
 </head>
 <body>
-    <div id="loginModal" class="modal">
-            <div class="model-content">
-                <span class="close">&times;</span>
-                <h2>Login To CHATIFY</h2>
-                <form action="index2.html">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="enter your name" user.name="your name" required><br>
 
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="enter your email" user.email="you@gmail.com" required><br>
+  <!-- ---------------- SIGNUP ---------------- -->
+  <div id="signupPage" class="container">
+    <h2>Sign Up</h2>
+    <input type="text" id="signupName" placeholder="Enter name" required>
+    <input type="email" id="signupEmail" placeholder="Enter Email" required>
+    <input type="password" id="signupPassword" placeholder="Enter Password" required>
+    <button onclick="signup()">Sign Up</button>
+    <p>Already registered? <a href="#" onclick="showLogin()">Login</a></p>
+  </div>
 
-                    <label for="password">password</label>
-                    <input type="password" id="pass" placeholder="enter password"required><br>
-                    <button type="submit" class="btn">Login</button>
-                    
-                    
-                
-                </form>
-            </div>
-        </div>
-        <!-- <span class="close">&times;</span> -->
-        <script>
-            // const modal = document.getElementById("loginModal");
-            // const btn = document.getElementById("loginBtn");
-            // const span = document.getElementsByClassName("close")[0];
+  <!-- ---------------- LOGIN ---------------- -->
+  <div id="loginPage" class="container" style="display:none;">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Enter Email" required>
+    <input type="password" id="loginPassword" placeholder="Enter Password" required>
+    <button onclick="login()">Login</button>
+    <p>New user? <a href="#" onclick="showSignup()">Sign Up</a></p>
+  </div>
 
-            document.addEventListener("DOMContentLoaded",()=>{
-                const modal=document.getElementById("loginModal");
-                const closeBtn=document.querySelector(".close");
+  <!-- ---------------- PROFILE ---------------- -->
+  <div class="profile-container" id="profileSection">
+    <h1>👤 My Profile</h1>
 
-                 closeBtn.onclick=()=>{
-                modal.style.display="none";
-            }
-                 window.onclick=(event)=>{
-                if(event.target=== modal){
-                     modal.style.display="none";
-                    
-                    }
+    <div class="profile-photo-section">
+      <img id="profilePhoto" src="default-user.png" alt="Profile Photo" />
+      <input type="file" id="photoInput" accept="image/*" hidden />
+      <button id="changePhotoBtn">Change Photo</button>
+    </div>
 
-            }
+    <div class="profile-info">
+      <label>Full Name</label>
+      <input type="text" id="name" disabled />
+      <label>Email</label>
+      <input type="email" id="email" disabled />
+      <label>Password</label>
+      <input type="password" id="password" disabled />
+    </div>
 
-             closeBtn.onclick=()=>{
-                modal.style.opacity ="0";
-                setTimeout(() =>{
-                    modal.style.display="none";
-                    window.location.href="index.html";
-                },800);
-             };
-            })
-           
+    <div class="profile-actions">
+      <button id="editBtn">Edit</button>
+      <button id="saveBtn" disabled>Save</button>
+      <button id="logoutBtn">Logout</button>
 
+      <!-- <button id="startBtn">Start CHATIFY AI</button> -->
+    </div>
 
-//             btn.oneclick=function(){
-//                 modal.style.display="flex";
-// }
-//             span.oneclick=function(){
-//                 modal.style.display="none";
-//             }
-//             window.oneclick =function(event){
-//                 if(event.target== modal){
-//                     modal.style.display="none";
-//                 }
-//             }
-            // closeBtn.onclick=()=>{
-            //     modal.style.display="none";
-            // }
+    <div class="profile-actions1">
+       <button id="startBtn">Start CHATIFY AI</button>
+    </div>
 
-            // window.onclick=(event)=>{
-            //     if(event.target=== modal){
-            //          modal.style.display="none";
-                    
-            //         }
+  </div>
 
-            // }
+  <script>
+    // ---------------- PAGE SWITCH ----------------
+    function showSignup() {
+      document.getElementById('signupPage').style.display='block';
+      document.getElementById('loginPage').style.display='none';
+    }
+    function showLogin() {
+      document.getElementById('signupPage').style.display='none';
+      document.getElementById('loginPage').style.display='block';
+    }
 
-        </script>
-    
+    // ---------------- SIGNUP ----------------
+    function signup() {
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value.trim();
+      if(!name || !email || !password){ alert("All fields required!"); return; }
+      localStorage.setItem('userData', JSON.stringify({name,email,password}));
+      alert("✅ Sign up successful! Please login.");
+      showLogin();
+    }
 
+    // ---------------- LOGIN ----------------
+    function login() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+      const user = JSON.parse(localStorage.getItem('userData'));
+      if(!user){ alert("⚠️ No registered user found!"); return; }
+      if(email===user.email && password===user.password){ showProfilePage(user); }
+      else{ alert("❌ Invalid email or password!"); }
+    }
+
+    // ---------------- SHOW PROFILE ----------------
+    function showProfilePage(user){
+      document.getElementById('signupPage').style.display='none';
+      document.getElementById('loginPage').style.display='none';
+      document.getElementById('profileSection').style.display='flex';
+      document.getElementById('name').value = user.name;
+      document.getElementById('email').value = user.email;
+      document.getElementById('password').value = user.password;
+      if(user.photo) document.getElementById('profilePhoto').src = user.photo;
+    }
+
+    // ---------------- CHANGE PHOTO ----------------
+    document.getElementById("changePhotoBtn").onclick = ()=>document.getElementById("photoInput").click();
+    document.getElementById("photoInput").onchange = (e)=>{
+      const file = e.target.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = (event)=>{
+          document.getElementById("profilePhoto").src = event.target.result;
+          let user = JSON.parse(localStorage.getItem("userData"))||{};
+          user.photo = event.target.result;
+          localStorage.setItem("userData", JSON.stringify(user));
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    // ---------------- EDIT & SAVE PROFILE ----------------
+    document.getElementById("editBtn").onclick = ()=>{
+      document.querySelectorAll(".profile-info input").forEach(inp=>inp.disabled=false);
+      document.getElementById("saveBtn").disabled=false;
+    };
+    document.getElementById("saveBtn").onclick = ()=>{
+      const updatedUser = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        photo: document.getElementById("profilePhoto").src
+      };
+      localStorage.setItem("userData", JSON.stringify(updatedUser));
+      document.querySelectorAll(".profile-info input").forEach(inp=>inp.disabled=true);
+      document.getElementById("saveBtn").disabled=true;
+      alert("✅ Profile updated successfully!");
+    };
+
+    // ---------------- LOGOUT ----------------
+    document.getElementById("logoutBtn").onclick = ()=>{
+      document.getElementById("profileSection").style.display="none";
+      showLogin();
+    };
+// ---------------------------------------------------------------
+     document.getElementById("startBtn").addEventListener("click",function (){
+     window.location.href = 'index2.html';
+    } );
+
+  </script>
 </body>
 </html>
